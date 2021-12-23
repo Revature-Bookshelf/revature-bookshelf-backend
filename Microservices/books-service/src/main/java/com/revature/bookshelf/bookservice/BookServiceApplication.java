@@ -15,6 +15,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories
 public class BookServiceApplication {
 
+
+
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext=
 		SpringApplication.run(BookServiceApplication.class, args);
