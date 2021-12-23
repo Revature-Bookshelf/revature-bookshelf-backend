@@ -19,9 +19,10 @@ public class CartController {
         return cartRepository.findByUserId(userId);
     }
 
-    @PostMapping("/cart-service")
-    public String addCart(Cart cart){
+    @PostMapping("/cart-service/add")
+    public Cart addCart(@RequestBody Cart cart){
         cartRepository.save(cart);
-        return "Cart was added successfully";
+        System.out.println("cart was added successfully");
+        return cart;
     }
 }
