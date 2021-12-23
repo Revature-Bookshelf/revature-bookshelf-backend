@@ -7,8 +7,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
@@ -44,6 +46,18 @@ public class BookServiceApplication {
 		book2.setQuantity(7);
 
 		bookRepository.save(book2);
+
+		Book book3=new Book();
+		book3.setId(3);
+		book3.setTitle("beyaz dis");
+		book3.setPageCount(320);
+		book3.setAuthor("Jack London");
+		book3.setISBN("3246896");
+		book3.setGenre("story");
+		book3.setQuantity(0);
+
+		bookRepository.save(book3);
 	}
+
 
 }
