@@ -17,5 +17,6 @@ public class Book {
     private String genre;
     private String imgPath;
     private int quantity;
+    private double price;
 
 }
