@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+
+  mongodb:
+
+    image: mongo
+  mem_limit: 512m
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    command: mongod
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: revaturebookshelfdb
+    healthcheck:
+        test: "mongo --eval 'db.stats().ok'"
+        interval: 5s
+        timeout: 2s
+        retries: 60
+
+ api-service:
+        image: blf87/user-profile
+        ports:
+          - "8080:8080"
+        depends_on:
+          mongodb:
+            condition: service_healthy
+ web-ui:
+  image: blf87/user-profile
+  ports:
+    - "80:80"
+volumes:
+  data: {}
+
+networks:
+  default:
+    name: mongodb_network
+
+
+
+
+
