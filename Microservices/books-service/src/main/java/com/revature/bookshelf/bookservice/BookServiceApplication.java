@@ -30,6 +30,7 @@ public class BookServiceApplication {
 		book1.setGenre("novel");
 		book1.setQuantity(3);
 		book1.setPrice(44.00);
+		book1.setImgPath("../assets/images/crimeAndPunishment.jpg");
 
 		bookRepository.save(book1);
 
