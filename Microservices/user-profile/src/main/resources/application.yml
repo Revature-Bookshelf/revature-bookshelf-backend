@@ -1,4 +1,4 @@
-debug: false
+debug: true
 spring.data.mongodb.authentication-database: admin
 spring.data.mongodb.username: root
 spring.data.mongodb.password: password

@@ -9,5 +9,5 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories
 public interface UserRepository extends MongoRepository<User, ObjectId>{
-   //User findByEmail(String email);
+   User findByEmail(String email);
 }

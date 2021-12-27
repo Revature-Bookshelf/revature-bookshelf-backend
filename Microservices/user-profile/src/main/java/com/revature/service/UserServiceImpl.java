@@ -2,7 +2,6 @@ package com.revature.service;
 
 import com.revature.entity.User;
 import com.revature.repository.UserRepository;
-import com.revature.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 @Service
-public class UserServiceImpl/* implements UserService, UserDetailsService*/{/*
+public class UserServiceImpl implements UserService, UserDetailsService{
   @Autowired
    private UserRepository userRepository;
 
@@ -28,8 +27,7 @@ public class UserServiceImpl/* implements UserService, UserDetailsService*/{/*
         for(String authority:user.getAuthorities()){
             grantedAuthorities.add(new SimpleGrantedAuthority(authority));
         }
-        UserDetails userDetails=new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), grantedAuthorities);
-        return userDetails;
-        }*/
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), grantedAuthorities);
+        }
     }
 

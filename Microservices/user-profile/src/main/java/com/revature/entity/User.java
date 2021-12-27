@@ -26,7 +26,7 @@ public class User {
     private String firstName;
     private String middleName;
     private String lastName;
-   // @ElementCollection(fetch = FetchType.EAGER)
-    //@CollectionTable(name = "user_roles",foreignKey = @ForeignKey(name="user_id"))
-   // private List<String> authorities;
+   @ElementCollection(fetch = FetchType.EAGER)
+   @CollectionTable(name = "user_roles",foreignKey = @ForeignKey(name="user_id"))
+   private List<String> authorities;
 }
