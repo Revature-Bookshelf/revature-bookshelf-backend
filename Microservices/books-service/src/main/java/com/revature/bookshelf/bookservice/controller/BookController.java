@@ -17,12 +17,12 @@ public class BookController {
     private BookRepository bookRepository;
 
 
-    @GetMapping("/book-list/all")
+    @GetMapping("/books")
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
 
-    @GetMapping("/book-list/available")
+    @GetMapping("/books/available")
     public List<Book> getAvailableBooks() {
         return bookRepository.findAllAvailable();
     }
