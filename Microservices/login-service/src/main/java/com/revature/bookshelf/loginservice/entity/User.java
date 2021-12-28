@@ -4,15 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
+@Table(name = "users")
 public class User {
 
     @Id
@@ -22,4 +21,8 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_roles", foreignKey = @ForeignKey(name = "user_id"))
+    private List<String> authorities;
+    // TODO: ADD ROLES COLLECTION?
 }

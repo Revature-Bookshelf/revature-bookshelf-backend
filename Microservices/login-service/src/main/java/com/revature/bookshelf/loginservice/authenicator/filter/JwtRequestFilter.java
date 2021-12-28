@@ -52,7 +52,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             }
         } catch (UsernameNotFoundException e) {
-            // TODO: ADD LOGGING
+            // TODO: ADD LOGGING?
+            throw new RuntimeException("incorrect username or password");
         } finally {
             filterChain.doFilter(request,response);
         }

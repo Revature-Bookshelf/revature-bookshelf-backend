@@ -3,8 +3,10 @@ package com.revature.bookshelf.loginservice.authenicator.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -16,8 +18,13 @@ import java.util.function.Function;
 public class JwtUtils {
 
     // TODO: LOAD THIS SECRET EXTERNALLY
-    // Maybe usage of @Value()?
-    private final String SECRET_KEY = "secret";
+    // Maybe usage of @Value()
+    private final String SECRET_KEY;
+
+    @Autowired
+    public JwtUtils(@Value("${jwt.secret-key}") String SECRET_KEY) {
+        this.SECRET_KEY = SECRET_KEY;
+    }
 
     private String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
