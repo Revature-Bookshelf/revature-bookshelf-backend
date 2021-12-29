@@ -13,16 +13,25 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.core.Authentication;
 
+import java.util.Collection;
 import java.util.Optional;
 
 
 @RestController
 public class UserController {
-    @Autowired
-    UserRepository userRepository;
 
-    @GetMapping(value="/api/edit-profile/{userId}")
-    public ResponseEntity<?> get (@PathVariable ObjectId userId){
+    private final UserRepository userRepository;
+    @Autowired
+    public UserController(UserRepository userRepository) {
+        this.userRepository=userRepository;
+    }
+    @GetMapping(value="/api/profile")
+        public Collection<User> getAll(){Collection<User> users = userRepository.findAll();
+        return users;}
+
+    @GetMapping(value="/api/profile/{userId}",
+    produces="application/json")
+    public ResponseEntity<?> get (@PathVariable(name="userId") String userId){
         Optional<User> optionalUser = userRepository.findById(userId);
         if (optionalUser.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -44,13 +53,13 @@ public class UserController {
 
     @PutMapping(value="/api/edit-profile/{userId}",
             consumes ="application/json")
-    public ResponseEntity<?> put(@PathVariable ObjectId userId, @RequestBody User user){
+    public ResponseEntity<?> put(@PathVariable String userId, @RequestBody User user){
         user.setId(userId);
         user= userRepository.save(user); //updates user
         return ResponseEntity.ok(user);
     }
     @DeleteMapping(value="/api/edit-profile/{userId}")
-    public ResponseEntity<?>delete(@PathVariable ObjectId userId){
+    public ResponseEntity<?>delete(@PathVariable String userId){
         userRepository.deleteById(userId);
         return ResponseEntity.ok().build();
     }
