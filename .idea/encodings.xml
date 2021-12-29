@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/Microservices/cartmicroservice/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Microservices/user-profile/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Microservices/user-profile/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Microservices/books-service/src/main/java" charset="UTF-8" />
   </component>
 </project>

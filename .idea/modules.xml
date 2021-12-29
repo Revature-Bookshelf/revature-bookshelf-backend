@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Microservices/cart-service/cart-service.iml" filepath="$PROJECT_DIR$/Microservices/cart-service/cart-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Microservices/books-service/cart-service.iml" filepath="$PROJECT_DIR$/Microservices/books-service/cart-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/revature-bookshelf-backend.iml" filepath="$PROJECT_DIR$/.idea/revature-bookshelf-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/Microservices/user-profile/user-profile.iml" filepath="$PROJECT_DIR$/Microservices/user-profile/user-profile.iml" />
     </modules>
