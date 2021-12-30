@@ -1,12 +1,8 @@
 package com.revature.bookshelf.cartmicroservice.repository;
 
 
-import com.revature.bookshelf.cartmicroservice.model.ShopBook;
-import com.revature.bookshelf.cartmicroservice.model.Cart;
-import org.bson.Document;
-import org.springframework.data.mongodb.core.query.Criteria;
+import com.revature.bookshelf.cartmicroservice.entity.Cart;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Optional;
 
