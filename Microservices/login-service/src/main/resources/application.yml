@@ -8,12 +8,18 @@ jwt:
 
 # DB Information
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/usersdb
-    username: root
-    password: rootpass
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+  data:
+    mongodb:
+      auto-index-creation: true
+      database: revaturebookshelfdb
+      uri: mongodb+srv://<root>:<Choclaholic101>@revaturebookshelfdb.01dfm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      port: 27017
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/usersdb
+#    username: root
+#    password: rootpass
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update

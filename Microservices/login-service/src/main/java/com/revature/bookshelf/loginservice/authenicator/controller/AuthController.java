@@ -40,6 +40,9 @@ public class AuthController {
         } catch (UsernameNotFoundException | BadCredentialsException e) {
             throw new RuntimeException("incorrect username or password");
         }
+        // TODO: Add REST call to user-service for UserDetails
+        // UserDetails userDetails ?= RestTemplate(url,UserDetails.class) eventually becomes
+        // Mono<UserDetails> = WebClient()?
         UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
         String jwt = jwtUtils.generateToken(userDetails);
 
