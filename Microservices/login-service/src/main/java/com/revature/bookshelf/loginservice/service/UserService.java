@@ -7,5 +7,5 @@ public interface UserService{
 
     void register(User user);
     // for auth-service
-//    UserDetails loadUserByUsername(String email);
+    //UserDetails loadUserByUsername(String email);
 }

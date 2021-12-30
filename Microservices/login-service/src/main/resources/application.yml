@@ -1,4 +1,3 @@
-# Server Port
 server:
   port: 9001
 
@@ -10,10 +9,8 @@ jwt:
 spring:
   data:
     mongodb:
-      auto-index-creation: true
-      database: revaturebookshelfdb
-      uri: mongodb+srv://<root>:<Choclaholic101>@revaturebookshelfdb.01dfm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-      port: 27017
+      uri: mongodb+srv://root:Choclaholic101@revaturebookshelfdb.01dfm.mongodb.net/bookshelfdb?retryWrites=true&w=majority
+
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/usersdb
@@ -23,3 +20,10 @@ spring:
 #    show-sql: true
 #    hibernate:
 #      ddl-auto: update
+
+# Swagger-UI
+springdoc:
+  swagger-ui.path: /openapi/swagger-ui.html
+  api-docs.path: /openapi/v3/api-docs
+  packagesToScan: com.reavture.bookshelf.loginservice
+  pathsToMatch: /**

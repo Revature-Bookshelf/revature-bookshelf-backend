@@ -2,6 +2,7 @@ package com.revature.bookshelf.loginservice.authenicator.filter;
 
 
 import com.revature.bookshelf.loginservice.authenicator.utils.JwtUtils;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
