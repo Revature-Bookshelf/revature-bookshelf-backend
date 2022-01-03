@@ -22,3 +22,18 @@ VALUES ('test1First','test1Last', 'test1@mail.com', '$2a$10$gXY.y5B45WeaObTSzLW8
 INSERT INTO user_roles (user_id, authorities)
 VALUES (1,'ROLE_USER');
 
+
+CREATE TABLE profiles (
+id int PRIMARY KEY auto_increment,
+fk_userid int, FOREIGN KEY (fk_userid) REFERENCES users(id),
+address1 varchar(250) NOT NULL,
+address2 varchar(250) NOT NULL,
+phone int (25) NOT NULL,
+about_me varchar(500) UNIQUE NOT NULL
+
+);
+
+INSERT INTO profiles (fk_userid, address1, address2, phone, about_me)
+VALUES (1,'address line 1', 'address line 2', 1232345567, 'basic description');
+
+
