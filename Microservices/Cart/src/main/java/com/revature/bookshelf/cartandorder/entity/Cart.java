@@ -1,4 +1,4 @@
-package com.revature.bookshelf.cartmicroservice.entity;
+package com.revature.bookshelf.cartandorder.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,8 +11,11 @@ import java.util.List;
 @Document(collection = "cart")
 public class Cart  {
     @Id
-    private String _id;
+    private String id;
     private String userId;
     private List<ShopBook> books;
 
+    public Cart(String id) {
+        this.id = id;
+    }
 }

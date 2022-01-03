@@ -1,4 +1,4 @@
-package com.revature.bookshelf.cartmicroservice.entity;
+package com.revature.bookshelf.cartandorder.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

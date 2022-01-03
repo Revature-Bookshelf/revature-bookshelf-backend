@@ -1,7 +1,7 @@
-package com.revature.bookshelf.cartmicroservice.repository;
+package com.revature.bookshelf.cartandorder.repository;
 
 
-import com.revature.bookshelf.cartmicroservice.entity.Cart;
+import com.revature.bookshelf.cartandorder.entity.Cart;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
