@@ -17,8 +17,6 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories
-//@EnableSwagger2
-//@EnableAutoConfiguration(exclude={MongoAutoConfiguration.class})
 //@EnableDiscoveryClient
 public class CartServiceApplication {
 //	static CartController cartController;
