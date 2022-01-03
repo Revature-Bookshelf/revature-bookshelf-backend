@@ -1,73 +1,81 @@
 package com.revature.bookshelf.loginservice.authenicator.utils;
 
+import com.revature.bookshelf.loginservice.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-@Service
+@Component
 public class JwtUtils {
 
-    // TODO: LOAD THIS SECRET EXTERNALLY
-    // Maybe usage of @Value()
-    private final String SECRET_KEY;
+    @Value("${jwt.secret-key}")
+    private String secret;
 
-    @Autowired
-    public JwtUtils(@Value("${jwt.secret-key}") String SECRET_KEY) {
-        this.SECRET_KEY = SECRET_KEY;
+    // IN hours
+    @Value("10")
+    private String expirationTime;
+
+    private Key key;
+
+    @PostConstruct
+    public void init() {
+        this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(subject)
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                // Expiration of Token based on time added
-                // Current: 10 hours converted to ms
-                .setExpiration(new Date(System.currentTimeMillis() + 10 * 60 * 60 * 1000))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
+    public Claims getAllClaimsFromToken(String token) {
+        return Jwts
+                .parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
     }
 
-    public String generateToken(UserDetails userDetails) {
-        Map<String, Object> claims = new HashMap<>();
-        return createToken(claims, userDetails.getUsername());
+    public String getUsernameFromToken(String token) {
+        return getAllClaimsFromToken(token).getSubject();
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
-    }
-
-    private Claims extractAllClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .parseClaimsJws(token)
-                .getBody();
-    }
-
-    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = extractAllClaims(token);
-        return claimsResolver.apply(claims);
-    }
-
-    public String extractUsername(String token) {
-        return extractClaim(token, Claims::getSubject);
-    }
-
-    public Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+    public Date getExpirationDateFromToken(String token) {
+        return getAllClaimsFromToken(token).getExpiration();
     }
 
     private Boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+        final Date expiration = getExpirationDateFromToken(token);
+        return expiration.before(new Date());
     }
+
+    public String generateToken(User user) {
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("role", user.getAuthorities());
+        // user.getUsername() returns user.email
+        return doGenerateToken(claims, user.getUsername());
+    }
+
+    private String doGenerateToken(Map<String, Object> claims, String username) {
+        Long expirationTimeLong = Long.parseLong(expirationTime); // in hours
+        final Date createdDate = new Date();
+        final Date expirationDate = new Date(createdDate.getTime() + expirationTimeLong * 60 * 60 * 1000);
+
+        return Jwts.builder()
+                .setClaims(claims)
+                .setSubject(username)
+                .setIssuedAt(createdDate)
+                .setExpiration(expirationDate)
+                .signWith(key)
+                .compact();
+    }
+
+    public Boolean validateToken(String token) {
+        return !isTokenExpired(token);
+    }
+
 }

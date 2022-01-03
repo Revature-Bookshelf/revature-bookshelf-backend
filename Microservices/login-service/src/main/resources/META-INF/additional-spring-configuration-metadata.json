@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "password.encoder.keylength",
+      "type": "java.lang.String",
+      "description": "Description for password.encoder.keylength."
+  }
+] }

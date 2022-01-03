@@ -1,8 +1,12 @@
 package com.revature.bookshelf.loginservice.authenicator.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class AuthRequest {
 

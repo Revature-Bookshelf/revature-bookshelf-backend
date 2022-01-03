@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.web.reactive.config.EnableWebFlux;
 
 @SpringBootApplication
+@EnableWebFlux
 @EnableConfigurationProperties
 @EnableMongoRepositories
 public class LoginServiceApplication {

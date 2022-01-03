@@ -3,7 +3,12 @@ server:
 
 # JWT secret key
 jwt:
-  secret-key: "SECRET"
+  secret-key: "ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength"
+password:
+  encoder:
+    secret: "secret"
+    iteration: 33
+    keylength: 256
 
 # DB Information
 spring:
