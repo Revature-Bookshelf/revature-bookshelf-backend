@@ -6,10 +6,9 @@ import com.revature.bookshelf.cartandorder.entity.ShopBook;
 import com.revature.bookshelf.cartandorder.service.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 
 import java.util.Arrays;
@@ -17,7 +16,7 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class CartServiceApplication {
 //	static CartController cartController;
 	public static void main(String[] args) {
