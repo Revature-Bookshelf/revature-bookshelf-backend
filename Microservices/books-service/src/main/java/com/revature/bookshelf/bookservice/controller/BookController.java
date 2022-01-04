@@ -3,17 +3,16 @@ package com.revature.bookshelf.bookservice.controller;
 
 import com.revature.bookshelf.bookservice.entity.Book;
 import com.revature.bookshelf.bookservice.repository.BookRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Collation;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class BookController {
@@ -25,11 +24,13 @@ public class BookController {
 
     @GetMapping("/books")
     public List<Book> getBooks() {
+        log.info("Listed all books");
         return bookRepository.findAll();
     }
 
     @GetMapping("/books/available")
     public List<Book> getAvailableBooks() {
+        log.info("Listed available books");
         return bookRepository.findAllAvailable();
     }
 
@@ -50,7 +51,7 @@ public class BookController {
         for(int i=0; i<genres.size(); i++){
             allGenres.add(genres.get(i).substring(11,genres.get(i).lastIndexOf("}")-1));
         }
-
+        log.info("Listed all genres");
         return allGenres.stream().distinct().collect(Collectors.toList());
 
     }
