@@ -52,12 +52,12 @@ public class ProfileServiceImpl implements ProfileService{
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @Override
-    public void register(User user) {
-        String bcryptHashString = passwordEncoder.encode(user.getPassword());
-        user.setPassword(bcryptHashString);
-        userProfileRepository.save(user);
-    }
+//    @Override
+//    public void register(User user) {
+//        String bcryptHashString = passwordEncoder.encode(user.getPassword());
+//        user.setPassword(bcryptHashString);
+//        userProfileRepository.save(user);
+//    }
 
     @Override
     public UserDTO createUser(UserDTO userDTO)
@@ -113,19 +113,19 @@ public class ProfileServiceImpl implements ProfileService{
 //    }
 
     //called by :
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-        User user = userRepository.findByEmail(username);
-
-        if (user == null) throw new UsernameNotFoundException(username);
-
-        ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        for (String authority : user.getAuthorities()) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(authority));
-        }
-        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), grantedAuthorities);
-        return userDetails;
-    }
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+//        User user = userRepository.findByEmail(username);
+//
+//        if (user == null) throw new UsernameNotFoundException(username);
+//
+//        ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+//        for (String authority : user.getAuthorities()) {
+//            grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+//        }
+//        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), grantedAuthorities);
+//        return userDetails;
+//    }
 
     @Override
     public UserDTO getUserByUserId(String userId)

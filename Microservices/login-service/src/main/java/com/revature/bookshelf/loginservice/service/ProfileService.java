@@ -6,8 +6,9 @@ import com.revature.bookshelf.loginservice.dto.UserDTO;
 
 import java.util.List;
 
-public interface ProfileService extends UserDetailsService {
-    void register(User user);
+//extends UserDetailsService was here
+public interface ProfileService  {
+//    void register(User user);
     public UserDTO createUser(UserDTO userDTO);
     public UserDTO getUser(String email);
     public UserDTO getUserByUserId(String userId);
