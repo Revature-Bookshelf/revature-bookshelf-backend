@@ -48,8 +48,8 @@ public class BookController {
             genres.add(i,bookRepository.findAllGenres().get(i));
         }
 
-        for(int i=0; i<genres.size(); i++){
-            allGenres.add(genres.get(i).substring(11,genres.get(i).lastIndexOf("}")-1));
+        for (String genre : genres) {
+            allGenres.add(genre.substring(11, genre.lastIndexOf("}") - 1));
         }
         log.info("Listed all genres");
         return allGenres.stream().distinct().collect(Collectors.toList());
