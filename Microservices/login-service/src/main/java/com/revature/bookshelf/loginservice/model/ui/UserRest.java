@@ -3,7 +3,7 @@ package com.revature.bookshelf.loginservice.model.ui;
 import java.util.List;
 
 public class UserRest {
-    private String userId;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -11,12 +11,12 @@ public class UserRest {
 
     public String getUserId()
     {
-        return userId;
+        return id;
     }
 
     public void setUserId(String userId)
     {
-        this.userId = userId;
+        this.id = id;
     }
 
     public String getFirstName()

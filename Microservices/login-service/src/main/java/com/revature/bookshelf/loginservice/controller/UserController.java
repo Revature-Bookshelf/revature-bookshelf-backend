@@ -2,7 +2,7 @@ package com.revature.bookshelf.loginservice.controller;
 
 import com.revature.bookshelf.loginservice.controller.payload.HttpResponseBody;
 import com.revature.bookshelf.loginservice.entity.User;
-import com.revature.bookshelf.loginservice.service.UserService;
+import com.revature.bookshelf.loginservice.service.ProfileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private ProfileService profileService;
 
 
     // POST /api/users
@@ -28,7 +28,7 @@ public class UserController {
             value = "/api/users"
     )
     public ResponseEntity<?> doPost(@RequestBody User user){
-        userService.register(user);
+        profileService.register(user);
         HttpResponseBody responseBody=new HttpResponseBody("user registered");
         return ResponseEntity.status(HttpStatus.CREATED).body(responseBody);
     }

@@ -18,6 +18,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -38,6 +39,16 @@ public class ProfileServiceImpl implements ProfileService{
 
     @Autowired
     BCryptPasswordEncoder bcryptPasswordEncoder;
+
+
+    private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+    @Override
+    public void register(User user) {
+        String bcryptHashString = passwordEncoder.encode(user.getPassword());
+        user.setPassword(bcryptHashString);
+        userProfileRepository.save(user);
+    }
 
     @Override
     public UserDTO createUser(UserDTO userDTO)

@@ -26,6 +26,7 @@ VALUES (1,'ROLE_USER');
 please add below if you already have users made
 *********************************************************************************
 ALTER TABLE users
+ADD COLUMN user_id VARCHAR(150),
 ADD COLUMN email_verification_token VARCHAR(150),
 ADD COLUMN email_verification_status boolean;
 *********************************************************************************

@@ -1,6 +1,6 @@
 # Server Port
 server:
-  port: 9001
+  port: 8181
 
 # JWT secret key
 jwt:
