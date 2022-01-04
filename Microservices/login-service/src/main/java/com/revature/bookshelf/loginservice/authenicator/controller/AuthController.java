@@ -33,6 +33,7 @@ public class AuthController {
             value = "/login"
     )
     public ResponseEntity<?> doLogin(@RequestBody AuthRequest authRequest) {
+        System.out.println(authRequest.getUsername());
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getUsername(),authRequest.getPassword())

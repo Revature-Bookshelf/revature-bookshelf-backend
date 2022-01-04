@@ -18,6 +18,7 @@ public class LoginServiceApplication {
 		SpringApplication.run(LoginServiceApplication.class, args);
 	}
 
+	// TODO: Authenticator.config.WebSecurityConfiguration bean conflict with UserEntity cast to UserDetails
 	@Bean
 	public BCryptPasswordEncoder bcryptPasswordEncoder()
 	{

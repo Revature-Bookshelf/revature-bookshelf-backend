@@ -7,6 +7,7 @@ import com.revature.bookshelf.loginservice.entity.User;
 import com.revature.bookshelf.loginservice.exception.UserServiceException;
 import com.revature.bookshelf.loginservice.repository.AddressRepository;
 import com.revature.bookshelf.loginservice.repository.UserProfileRepository;
+import com.revature.bookshelf.loginservice.repository.UserRepository;
 import com.revature.bookshelf.loginservice.utils.ErrorMessages;
 import com.revature.bookshelf.loginservice.utils.Utils;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,11 +28,15 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class ProfileServiceImpl implements ProfileService{
 
     @Autowired
     UserProfileRepository userProfileRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Autowired
     AddressRepository addressRepository;
@@ -39,6 +46,8 @@ public class ProfileServiceImpl implements ProfileService{
 
     @Autowired
     BCryptPasswordEncoder bcryptPasswordEncoder;
+
+
 
 
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -92,16 +101,30 @@ public class ProfileServiceImpl implements ProfileService{
         return returnUserDTO;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException
-    {
-        User userEntity = userProfileRepository.findByEmail(email);
-        if (userEntity == null)
-        {
-            throw new UsernameNotFoundException(email);
-        }
-        return (UserDetails) new User(userEntity.getEmail(), userEntity.getPassword(),new ArrayList<>());
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException
+//    {
+//        User userEntity = userProfileRepository.findByEmail(email);
+//        if (userEntity == null)
+//        {
+//            throw new UsernameNotFoundException(email);
+//        }
+//        return (UserDetails) new User(userEntity.getEmail(), userEntity.getPassword(),new ArrayList<>());
+//    }
 
+    //called by :
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+        User user = userRepository.findByEmail(username);
+
+        if (user == null) throw new UsernameNotFoundException(username);
+
+        ArrayList<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        for (String authority : user.getAuthorities()) {
+            grantedAuthorities.add(new SimpleGrantedAuthority(authority));
+        }
+        UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), grantedAuthorities);
+        return userDetails;
     }
 
     @Override
