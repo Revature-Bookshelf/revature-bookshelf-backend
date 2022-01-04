@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,8 +23,19 @@ public class User extends Object{
     private String lastName;
     private String email;
     private String password;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "user_roles", foreignKey = @ForeignKey(name = "user_id"))
     private List<String> authorities;
-    // TODO: ADD ROLES COLLECTION?
+
+
+    private String emailVerificationToken;
+    private Boolean emailVerificationStatus = false;
+
+    @OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
+    private List<Address> addresses;
+
+
+    public <E> User(String email, String password, ArrayList<E> es) {
+    }
 }
