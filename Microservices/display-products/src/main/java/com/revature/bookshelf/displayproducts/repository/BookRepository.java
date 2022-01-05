@@ -14,6 +14,6 @@ public interface BookRepository extends MongoRepository<Book, Integer> {
     @Query(  "  { genre: ?0 }")
     List<Book> findSelectGenre(String _genre);
 
-    @Query(value = " { 'genre': {$ne: false }}", fields = "{ 'id':0, 'title':0, 'pageCount':0, 'isbn':0, 'author':0, 'imgPath':0, '_class':0, 'quantity':0, 'price':0 } + ")
+    @Query(value = " { 'genre': {$ne: false }}", fields = "{ 'id':0, 'title':0, 'pageCount':0, 'publishDate':0, 'isbn':0, 'author':0, 'imgPath':0, '_class':0, 'quantity':0, 'price':0 } + ")
     List<String> findAllGenres();
 }
