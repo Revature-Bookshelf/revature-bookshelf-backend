@@ -10,11 +10,11 @@ Once a desired book is found, customers are able to add books to the cart. Once 
 * Spring
 * HTML/SCSS/TypeScript
 ### Back-end
-Java
-Mongodb
-MySQL
-Docker
-Jenkins
-Maven
-AWS EC2
-AWS S3
+* Java
+* Mongodb
+* MySQL
+* Docker
+* Jenkins
+* Maven
+* AWS EC2
+* AWS S3
