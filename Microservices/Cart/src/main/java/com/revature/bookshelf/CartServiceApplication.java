@@ -1,18 +1,9 @@
 package com.revature.bookshelf;
 
-import com.revature.bookshelf.cartandorder.entity.Cart;
-import com.revature.bookshelf.cartandorder.entity.Order;
-import com.revature.bookshelf.cartandorder.entity.ShopBook;
-import com.revature.bookshelf.cartandorder.service.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-
-
-import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories
