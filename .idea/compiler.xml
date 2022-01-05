@@ -7,16 +7,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+<<<<<<< HEAD
         <module name="display-products" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="display-products" target="17" />
+=======
+        <module name="user-profile" />
+        <module name="cart-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cart-service" target="17" />
+      <module name="user-profile" target="17" />
+>>>>>>> main
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+<<<<<<< HEAD
       <module name="display-products" options="-parameters" />
+=======
+      <module name="cart-service" options="-parameters" />
+      <module name="user-profile" options="-parameters" />
+>>>>>>> main
     </option>
   </component>
 </project>
