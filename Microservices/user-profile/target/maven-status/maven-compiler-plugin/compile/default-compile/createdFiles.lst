@@ -1,7 +1,0 @@
-com\revature\service\UserService.class
-com\revature\UserProfileServiceApplication$1.class
-com\revature\entity\User.class
-com\revature\web\UserController.class
-com\revature\repository\UserRepository.class
-com\revature\service\UserServiceImpl.class
-com\revature\UserProfileServiceApplication.class
