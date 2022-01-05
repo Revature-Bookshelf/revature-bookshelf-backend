@@ -8,7 +8,7 @@ Once a desired book is found, customers are able to add books to the cart. Once 
 ### Front-end
 * Angular 13+
 * Spring
-* HTML/SCSS/TypeScript
+* HTML / SCSS / TypeScript
 ### Back-end
 * Java
 * Mongodb
