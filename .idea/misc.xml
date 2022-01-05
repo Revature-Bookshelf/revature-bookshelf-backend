@@ -4,6 +4,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/Microservices/login-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Microservices/display-products/pom.xml" />
+        <option value="$PROJECT_DIR$/Microservices/cart-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Microservices/user-profile/pom.xml" />
       </list>
     </option>
   </component>

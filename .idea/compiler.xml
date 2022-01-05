@@ -12,11 +12,26 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="login-service" target="11" />
+        <module name="display-products" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="display-products" target="17" />
+        <module name="user-profile" />
+        <module name="cart-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cart-service" target="17" />
+      <module name="user-profile" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="login-service" options="-parameters" />
+      <module name="display-products" options="-parameters" />
+      <module name="cart-service" options="-parameters" />
+      <module name="user-profile" options="-parameters" />
     </option>
   </component>
 </project>

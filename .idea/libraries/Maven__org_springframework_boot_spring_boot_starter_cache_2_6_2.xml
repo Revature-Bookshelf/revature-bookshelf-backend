@@ -1,0 +1,25 @@
+<component name="libraryTable">
+<<<<<<< HEAD:.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_cache_2_6_2.xml
+  <library name="Maven: org.springframework.boot:spring-boot-starter-cache:2.6.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-cache/2.6.2/spring-boot-starter-cache-2.6.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-cache/2.6.2/spring-boot-starter-cache-2.6.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-cache/2.6.2/spring-boot-starter-cache-2.6.2-sources.jar!/" />
+=======
+  <library name="Maven: org.springframework.boot:spring-boot-starter-test:2.5.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-test/2.5.0/spring-boot-starter-test-2.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-test/2.5.0/spring-boot-starter-test-2.5.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-test/2.5.0/spring-boot-starter-test-2.5.0-sources.jar!/" />
+>>>>>>> main:.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_5_0.xml
+    </SOURCES>
+  </library>
+</component>
