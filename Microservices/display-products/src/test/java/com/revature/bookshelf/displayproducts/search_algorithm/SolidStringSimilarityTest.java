@@ -1,4 +1,4 @@
-package com.revature.bookshelf.bookservice.search_algorithm;
+package com.revature.bookshelf.displayproducts.search_algorithm;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

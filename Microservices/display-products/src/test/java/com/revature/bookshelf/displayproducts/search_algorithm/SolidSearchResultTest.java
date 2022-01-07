@@ -1,4 +1,4 @@
-package com.revature.bookshelf.bookservice.search_algorithm;
+package com.revature.bookshelf.displayproducts.search_algorithm;
 
 
 import com.revature.bookshelf.displayproducts.entity.Book;
