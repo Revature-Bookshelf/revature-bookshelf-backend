@@ -1,6 +1,5 @@
 package com.revature.bookshelf.displayproducts;
 
-import com.revature.bookshelf.displayproducts.entity.Book;
 import com.revature.bookshelf.displayproducts.repository.BookRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

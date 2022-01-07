@@ -1,4 +1,4 @@
-package com.revature.bookshelf.bookservice.exception;
+package com.revature.bookshelf.displayproducts.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

@@ -1,7 +1,7 @@
-package com.revature.bookshelf.bookservice.service;
+package com.revature.bookshelf.displayproducts.service;
 
-import com.revature.bookshelf.bookservice.entity.Book;
-import com.revature.bookshelf.bookservice.entity.Filter;
+import com.revature.bookshelf.displayproducts.entity.Filter;
+import com.revature.bookshelf.displayproducts.entity.Book;
 
 import java.util.List;
 

@@ -40,13 +40,10 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
-<<<<<<< Updated upstream:Microservices/display-products/pom.xml
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-=======
->>>>>>> Stashed changes:Microservices/books-service/pom.xml
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>

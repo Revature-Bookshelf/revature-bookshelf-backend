@@ -1,6 +1,6 @@
-package com.revature.bookshelf.bookservice.search_algorithm;
+package com.revature.bookshelf.displayproducts.search_algorithm;
 
-import com.revature.bookshelf.bookservice.entity.Book;
+import com.revature.bookshelf.displayproducts.entity.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

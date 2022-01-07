@@ -1,9 +1,9 @@
 package com.revature.bookshelf.bookservice.search_algorithm;
 
-import com.revature.bookshelf.bookservice.entity.Book;
+
+import com.revature.bookshelf.displayproducts.entity.Book;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
